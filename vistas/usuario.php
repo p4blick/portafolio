@@ -68,7 +68,7 @@ if ($_SESSION['mantenedor']==1)
 
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Rut(*):</label>
-                            <input type="text" class="form-control" name="rut" id="rut" maxlength="9" placeholder="Rut" required>
+                            <input type="text" class="form-control" name="rut" id="rut" required oninput="checkRut(this)" maxlength="9" placeholder="Rut" required>
                           </div>
 
                           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -146,6 +146,7 @@ else
 require 'footer.php';
 ?>
 <script type="text/javascript" src="scripts/usuario.js"></script>
+
 <?php 
 }
 ob_end_flush();

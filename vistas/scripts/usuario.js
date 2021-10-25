@@ -13,43 +13,52 @@ function init(){
 	            $("#idGerencia").html(r);
 	            $('#idGerencia').selectpicker('refresh');
 
-	});
+	})
     
     //Cargamos los items al select 
 	$.post("../ajax/usuario.php?op=selectArea", function(r){
 	            $("#idArea").html(r);
 	            $('#idArea').selectpicker('refresh');
 
-	});
+	})
 
     //Cargamos los items al select 
 	$.post("../ajax/usuario.php?op=selectSubGerencia", function(r){
         		$("#idSubGerencia").html(r);
        			$('#idSubGerencia').selectpicker('refresh');
 
-    });
+    })
 
     //Cargamos los items al select 
 	$.post("../ajax/usuario.php?op=selectCargo", function(r){
         	$("#idCargo").html(r);
         	$('#idCargo').selectpicker('refresh');
 
-    });
+    })
 
     //Cargamos los items al select 
 	$.post("../ajax/usuario.php?op=selectPerfilUsuario", function(r){
         	$("#idPerfil_Usuario").html(r);
         	$('#idPerfil_Usuario').selectpicker('refresh');
 
-    });
+    })
 
 	//Mostramos los permisos
 	$.post("../ajax/usuario.php?op=permisos&id=",function(r){
 		$("#permisos").html(r);
-	});
+	})
 
-    
 }
+
+//Validar solo letras en el campo input
+$("#nombre").bind('keypress', function(event) {
+	var regex = new RegExp("^[a-zA-Z ]+$");
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regex.test(key)) {
+	  event.preventDefault();
+	  return false;
+	}
+  });
 
 
 
@@ -155,6 +164,7 @@ function guardaryeditar(e)
 
 	});
 	limpiar();
+	
 }
 
 
@@ -194,6 +204,8 @@ function mostrar(idUsuario)
 		$("#permisos").html(r);
 	});
 }
+
+
 
 
 

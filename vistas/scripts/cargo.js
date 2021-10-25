@@ -11,6 +11,17 @@ function init(){
 	})
 }
 
+//Validar solo letras en el campo input
+$("#nombre_cargo").bind('keypress', function(event) {
+	var regex = new RegExp("^[a-zA-Z ]+$");
+	var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+	if (!regex.test(key)) {
+	  event.preventDefault();
+	  return false;
+	}
+  });
+
+
 //Función limpiar
 function limpiar()
 {
@@ -96,6 +107,16 @@ function guardaryeditar(e)
 		}
 	});
 	limpiar();
+	//Validar solo letras en el campo input
+	$("#nombre_cargo").bind('keypress', function(event) {
+		var regex = new RegExp("^[a-zA-Z ]+$");
+		var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
+		if (!regex.test(key)) {
+	  	event.preventDefault();
+	  return false;
+	}
+  });
+  	
 }
 
 
